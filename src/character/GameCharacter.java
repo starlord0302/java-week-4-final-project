@@ -1,6 +1,7 @@
 package character;
 
 import util.Position;
+import util.TestArray;
 
 public abstract class GameCharacter {
   private double healthPoint;
@@ -52,6 +53,7 @@ public abstract class GameCharacter {
       Thread.currentThread().interrupt();
     }
     double damage = this.attack();
+    TestArray.counter = 0;
     System.out.println(this.initial + " attack:  " + damage);
     double newHeroHealth = GameCharacter.getHealthPoint() - damage;
     GameCharacter.setHealthPoint(newHeroHealth);
