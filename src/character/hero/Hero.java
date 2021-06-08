@@ -27,8 +27,8 @@ public class Hero extends GameCharacter {
 
   @Override
   public double attack() {
-    int currentDiceRoll = RandomGenerator.diceRoll();
-
+    //int currentDiceRoll = RandomGenerator.diceRoll();
+    int currentDiceRoll = TestArray.getDiceRoll();
     System.out.println("Dice: " + currentDiceRoll);
 
     double attackAmount = 0;

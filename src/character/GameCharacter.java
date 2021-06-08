@@ -36,8 +36,13 @@ public abstract class GameCharacter {
   }
 
   public void printGameCharacter() {
-    System.out.println(this.initial + " = " + "{ a: " + this.attackPoint + ", h: " + this.healthPoint + ", p: "
+    if(this.healthPoint < 0) {
+      System.out.println(this.initial + " = " + "{ a: " + this.attackPoint + ", h: 0"  + ", p: "
         + this.position.positionString() + " }");
+    } else {
+      System.out.println(this.initial + " = " + "{ a: " + this.attackPoint + ", h: " + this.healthPoint + ", p: "
+        + this.position.positionString() + " }");
+    }
   }
 
   public void fight(GameCharacter GameCharacter) {

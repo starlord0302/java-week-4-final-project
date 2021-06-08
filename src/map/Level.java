@@ -58,7 +58,7 @@ public class Level {
       if (heroPosition.getField() == i) {
         System.out.print("[H]");
       } else {
-        fields[i].printField(true);
+        fields[i].printField(false);
       }
     }
     System.out.println();

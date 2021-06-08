@@ -1,4 +1,4 @@
-class Main {
+class App {
   private static final int LEVELS = 5;
   private static final int FIELDS = 10;
 
