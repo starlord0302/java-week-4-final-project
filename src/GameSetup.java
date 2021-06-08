@@ -20,6 +20,14 @@ public class GameSetup {
     board.printBoard();
   }
 
+  public GameSetup(char[][] boardSetup) {
+    this.board = new Board(boardSetup);
+    this.monsterSwarm = new MonsterSwarm(board);
+    this.hero = new Hero(START_LEVEL, START_FIELD);
+    this.gameLogic = new GameLogic(START_LEVEL, START_FIELD);
+    board.printBoard();
+  }
+
   public void start() {
     this.gameLogic.run(this.board, this.hero, this.monsterSwarm);
   }

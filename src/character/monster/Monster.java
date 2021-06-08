@@ -1,7 +1,8 @@
 package character.monster;
 
-import util.*;
 import character.GameCharacter;
+import util.Position;
+import util.TestArray;
 
 public class Monster extends GameCharacter {
   public static final double BASE_MONSTER_ATTACK = 5.0;

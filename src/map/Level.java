@@ -9,11 +9,18 @@ public class Level {
   private int numberOfMonsters;
   private Field[] fields;
 
-  Level(int numberOfFields) {
+  public Level(int numberOfFields) {
     this.numberOfFields = numberOfFields;
     this.numberOfPotions = numberOfFields / 2;
     this.numberOfMonsters = this.numberOfPotions - 1;
     this.fields = this.createLevel();
+  }
+
+  public Level(char[] levelSetup) {
+    this.numberOfFields = levelSetup.length;
+    this.numberOfPotions = numberOfFields / 2;
+    this.numberOfMonsters = this.numberOfPotions - 1;
+    this.fields = createLevelFromSetup(levelSetup);
   }
 
   public int getNumberOfFields() {
@@ -26,6 +33,23 @@ public class Level {
 
   public Field[] getFields() {
     return this.fields;
+  }
+
+  private Field[] createLevelFromSetup(char[] levelSetup) {
+    Field[] fields = new Field[this.numberOfFields];
+
+    for (int i = 0; i < levelSetup.length; i++) {
+      char fieldChar = levelSetup[i];
+      if (fieldChar == 'M') {
+        fields[i] = new Field(FieldType.MONSTER);
+      } else if(fieldChar == 'P') {
+        fields[i] = new Field(FieldType.POTION);
+      } else {
+        fields[i] = new Field(FieldType.BOSS);
+      }
+    }
+
+    return fields;
   }
 
   private void addRandomFields(Field[] fields, int fieldCount, FieldType fieldType) {
@@ -58,7 +82,7 @@ public class Level {
       if (heroPosition.getField() == i) {
         System.out.print("[H]");
       } else {
-        fields[i].printField(false);
+        fields[i].printField(true);
       }
     }
     System.out.println();

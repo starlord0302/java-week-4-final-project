@@ -16,6 +16,13 @@ public class Board {
     this.board = createBoard();
   }
 
+  public Board(char[][] boardSetup) {
+    this.numberOfLevels = boardSetup.length;
+    this.numberOfFields = boardSetup[0].length;
+    this.currentLevel = 0;
+    this.board = createBoardFromSetup(boardSetup);
+  }
+
   public int getNumberOfLevels() {
     return this.numberOfLevels;
   }
@@ -34,6 +41,16 @@ public class Board {
 
   public ArrayList<Level> getBoard() {
     return this.board;
+  }
+
+  private ArrayList<Level> createBoardFromSetup(char[][] boardSetup) {
+    ArrayList<Level> levels = new ArrayList<>();
+
+    for (int i = 0; i < boardSetup.length; i++) {
+      levels.add(new Level(boardSetup[i]));
+    }
+
+    return levels;
   }
 
   public ArrayList<Level> createBoard() {

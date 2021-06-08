@@ -1,5 +1,4 @@
 package util;
-
 public class TestArray {
   public static int counter = 0;
   public static int[] testDiceRolls = {2, 3, 4, 3, 5, 6, 1};

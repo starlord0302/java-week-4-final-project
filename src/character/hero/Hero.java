@@ -1,8 +1,10 @@
 package character.hero;
 
-import util.*;
-import map.*;
 import character.GameCharacter;
+import map.Field;
+import map.FieldType;
+import util.Position;
+import util.TestArray;
 
 public class Hero extends GameCharacter {
 
